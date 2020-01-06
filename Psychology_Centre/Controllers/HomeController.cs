@@ -13,8 +13,14 @@ namespace Psychology_Centre.Controllers
     {
         public ViewResult Index()
         {
-            int hour = DataTime.Now.Hour;
+            int hour = DateTime.Now.Hour;
             ViewBag.Greeting = hour < 12 ? "Good morning" : "good afternoon";
+            return View();
+        }
+
+        public ViewResult Privacy()
+        {
+            return View();
         }
     }
 }

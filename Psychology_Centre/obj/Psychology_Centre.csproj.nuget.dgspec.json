@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Thposbsmt\\Projects\\cs\\ASP.NET CORE\\Psychology_Centre\\Psychology_Centre\\Psychology_Centre.csproj": {}
+    "C:\\Users\\Thposbsmt\\Projects\\cs\\ASP_NET_CORE\\Psychology_Centre\\Psychology_Centre\\Psychology_Centre.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Thposbsmt\\Projects\\cs\\ASP.NET CORE\\Psychology_Centre\\Psychology_Centre\\Psychology_Centre.csproj": {
+    "C:\\Users\\Thposbsmt\\Projects\\cs\\ASP_NET_CORE\\Psychology_Centre\\Psychology_Centre\\Psychology_Centre.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Thposbsmt\\Projects\\cs\\ASP.NET CORE\\Psychology_Centre\\Psychology_Centre\\Psychology_Centre.csproj",
+        "projectUniqueName": "C:\\Users\\Thposbsmt\\Projects\\cs\\ASP_NET_CORE\\Psychology_Centre\\Psychology_Centre\\Psychology_Centre.csproj",
         "projectName": "Psychology_Centre",
-        "projectPath": "C:\\Users\\Thposbsmt\\Projects\\cs\\ASP.NET CORE\\Psychology_Centre\\Psychology_Centre\\Psychology_Centre.csproj",
+        "projectPath": "C:\\Users\\Thposbsmt\\Projects\\cs\\ASP_NET_CORE\\Psychology_Centre\\Psychology_Centre\\Psychology_Centre.csproj",
         "packagesPath": "C:\\Users\\Thposbsmt\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Thposbsmt\\Projects\\cs\\ASP.NET CORE\\Psychology_Centre\\Psychology_Centre\\obj\\",
+        "outputPath": "C:\\Users\\Thposbsmt\\Projects\\cs\\ASP_NET_CORE\\Psychology_Centre\\Psychology_Centre\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Thposbsmt\\AppData\\Roaming\\NuGet\\NuGet.Config",
