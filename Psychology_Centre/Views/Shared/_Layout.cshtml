@@ -6,46 +6,13 @@
     <title>@ViewData["Title"] - Psychology_Centre</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
 </head>
 <body>
     <header>
-        <style>
-            body {
-                margin: 0;
-                font-family: Arial, Helvetica, sans-serif;
-            }
-
-            .topnav {
-                height: 20px;
-                overflow: hidden;
-                background-color: black;
-                box-shadow: 0px 4px 0px 0px #ca0000;
-            }
-
-                .topnav a {
-                    float: left;
-                    color: #f2f2f2;
-                    text-align: center;
-                    padding: 2px 2px;
-                    text-decoration: none;
-                    font-size: 10px;
-                    font-weight: 700;
-                }
-
-                    .topnav a:hover {
-                        background-color: #ddd;
-                        color: black;
-                    }
-
-                    .topnav a.active {
-                        background-color: #4CAF50;
-                        color: white;
-                    }
-        </style>
-
             <div class="topnav">
                 <a class="active" asp-area="" asp-controller="Home" asp-action="Index">psychology center</a>
-                <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                <a asp-area="" asp-controller="Home" asp-action="Privacy">1111 - Администратор</a>
             </div>
     </header>
 
@@ -55,9 +22,14 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - Психологический Центр - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer>
+        <div class="foote">
+            <a asp-area="" asp-controller="Home" asp-action="Index">Главная страница</a>
+            <a asp-area="" asp-controller="Home" asp-action="Index">Отчёты</a>
+            <a asp-area="" asp-controller="Home" asp-action="Index">Клиенты</a>
+            <a asp-area="" asp-controller="Home" asp-action="Index">Информация</a>
+            <a asp-area="" asp-controller="Home" asp-action="Index">Отчёты</a>
+            <a asp-area="" asp-controller="Home" asp-action="Index">Электронное расписание</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
