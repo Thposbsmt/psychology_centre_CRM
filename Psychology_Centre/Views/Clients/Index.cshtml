@@ -1,0 +1,21 @@
+﻿@using Psychology_Centre.Models
+@model Client
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <form method="post" asp-controller="Clients" asp-action="Index">
+        Имя: <input type="text" asp-for="PhoneNumberFirst"/>
+        <span asp-validation-for="PhoneNumberFirst"></span> <br />
+        <input type="submit" />
+    </form>
+</body>
+</html>

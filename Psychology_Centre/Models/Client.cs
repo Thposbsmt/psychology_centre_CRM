@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Psychology_Centre.Models
 {
@@ -9,18 +7,32 @@ namespace Psychology_Centre.Models
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Введите имя клиента")]
+        [RegularExpression(@"^[А-Я]+[а-яА-Я''-'\s]*$", 
+            ErrorMessage = "Имя должно быть написано русскими буквами и начинаться с заглавной буквы")]
         public string Name { get; set; }
 
+        [RegularExpression(@"^[А-Я]+[а-яА-Я''-'\s]*$", 
+            ErrorMessage = "Фамилия должна быть написана русскими буквами и начинаться с заглавной буквы")]
         public string Surname { get; set; }
 
+        [RegularExpression(@"^[А-Я]+[а-яА-Я''-'\s]*$", 
+            ErrorMessage = "Отчество должно быть написано русскими буквами и начинаться с заглавной буквы")]
         public string Midname { get; set; }
 
         public string Special { get; set; }
 
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        public string PhoneNumberFirst { get; set; }
         
+        [RegularExpression(@"^8+[1-9]*$", ErrorMessage = "Номер телефона должен начинаться на 8")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "В номере должно быть 11 цифр")]
+        public string PhoneNumberFirst { get; set; }
+
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^8+[1-9]*$", ErrorMessage = "Номер телефона должен начинаться на 8")]
+        [StringLength(11, MinimumLength = 11, ErrorMessage = "В номере должно быть 11 цифр")]
         public string PhoneNumberSecond { get; set; }
 
         public string PhoneNumberUnformat { get; set; }
@@ -33,7 +45,9 @@ namespace Psychology_Centre.Models
 
         public string Gender { get; set; }
 
-        public string Birthday { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime Birthday { get; set; }
 
         public int Age { get; set; }
 
@@ -43,7 +57,7 @@ namespace Psychology_Centre.Models
 
         public string Status { get; set; }
 
-        public string Source { get; set } // Источник информирования о Центре.
+        public string Source { get; set; } // Источник информирования о Центре.
 
         public string FieldOfActivity { get; set; } // Сфера деятельности.
 
