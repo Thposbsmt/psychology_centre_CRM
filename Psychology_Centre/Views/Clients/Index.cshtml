@@ -1,7 +1,7 @@
 ﻿@using Psychology_Centre.Models
 @model Client
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 </head>
 <body>
     <form method="post" asp-controller="Clients" asp-action="Index">
-        Имя: <input type="text" asp-for="PhoneNumberFirst"/>
+        Имя: <input type="text" asp-for="Name"/>
         <span asp-validation-for="PhoneNumberFirst"></span> <br />
         <input type="submit" />
     </form>

@@ -21,7 +21,7 @@ namespace Psychology_Centre.Controllers
         public IActionResult Index(Client model)
         {
             if (ModelState.IsValid)
-                return Content($"{model.PhoneNumberFirst}");
+                return Content($"{model.Name}");
             return View(model);
         }
     }

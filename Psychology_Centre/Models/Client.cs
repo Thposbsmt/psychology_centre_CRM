@@ -20,12 +20,12 @@ namespace Psychology_Centre.Models
             ErrorMessage = "Отчество должно быть написано русскими буквами и начинаться с заглавной буквы")]
         public string Midname { get; set; }
 
-        public string Special { get; set; }
+        public bool Special { get; set; }
 
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        
+        [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^8+[1-9]*$", ErrorMessage = "Номер телефона должен начинаться на 8")]
         [StringLength(11, MinimumLength = 11, ErrorMessage = "В номере должно быть 11 цифр")]
         public string PhoneNumberFirst { get; set; }

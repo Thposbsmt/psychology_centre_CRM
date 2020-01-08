@@ -33,3 +33,4 @@ C:\Users\Thposbsmt\Projects\cs\ASP_NET_CORE\Psychology_Centre\Psychology_Centre\
 C:\Users\Thposbsmt\Projects\cs\ASP_NET_CORE\Psychology_Centre\Psychology_Centre\obj\Debug\netcoreapp3.1\Psychology_Centre.dll
 C:\Users\Thposbsmt\Projects\cs\ASP_NET_CORE\Psychology_Centre\Psychology_Centre\obj\Debug\netcoreapp3.1\Psychology_Centre.pdb
 C:\Users\Thposbsmt\Projects\cs\ASP_NET_CORE\Psychology_Centre\Psychology_Centre\obj\Debug\netcoreapp3.1\Psychology_Centre.csproj.CopyComplete
+C:\Users\Thposbsmt\Projects\cs\ASP_NET_CORE\Psychology_Centre\Psychology_Centre\obj\Debug\netcoreapp3.1\Razor\Views\Clients\Index.cshtml.g.cs
