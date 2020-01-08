@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Psychology_Centre.Models.Client>
+﻿@using Psychology_Centre.ViewModels
+@model IndexViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -19,8 +20,8 @@
     <h3>Фильтр</h3>
     <form asp-controller="Clients" asp-action="Index">
         <p>
-            Фамилия: <input type="text" name="searchSurname"/>
-            Email: <input type="text" name="searchEmail" />
+            Фамилия: <input type="text" name="searchSurname" value="@Model.FilterViewModel.SelectedSurname" />
+            Email: <input type="text" name="searchEmail" value="@Model.FilterViewModel.SelectedEmail" />
             <input type="submit" value="Фильтр" />
         </p>
     </form>
@@ -28,9 +29,17 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">ФИО</th>
+                <th scope="col">
+                    <a asp-action="Index"
+                       asp-route-sortOrder="@(Model.SortViewModel.SurnameSort)"
+                       asp-route-name="@(Model.FilterViewModel.SelectedSurname)">ФИО</a>
+                </th>
                 <th scope="col">Контактный телефон</th>
-                <th scope="col">Email</th>
+                <th scope="col">
+                    <a asp-action="Index"
+                       asp-route-sortOrder="@(Model.SortViewModel.EmailSort)"
+                       asp-route-name="@(Model.FilterViewModel.SelectedEmail)">Email</a>
+                </th>
                 <th scope="col">Когда позвонить</th>
                 <th scope="col">Статус</th>
                 <th scope="col">Особый клиент</th>
@@ -38,7 +47,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (Client item in Model.Clients)
             {
                 <tr>
                     <td scope="row">
@@ -69,5 +78,29 @@
             }
         </tbody>
     </table>
+    @if (Model.PageViewModel.HasPreviousPage)
+    {
+        <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+           asp-route-surname="@(Model.FilterViewModel.SelectedSurname)"
+           asp-route-email="@(Model.FilterViewModel.SelectedEmail)"
+           asp-route-sortorder="@(Model.SortViewModel.Current)"
+           class="btn  btn-outline-dark">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Назад
+        </a>
+    }
+    @if (Model.PageViewModel.HasNextPage)   
+    {
+        <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+           asp-route-surname="@(Model.FilterViewModel.SelectedSurname)"
+           asp-route-email="@(Model.FilterViewModel.SelectedEmail)"
+           asp-route-sortorder="@(Model.SortViewModel.Current)"
+           class="btn btn-outline-dark">
+            Вперед
+            <i class="glyphicon glyphicon-chevron-right"></i>
+        </a>
+    }
 </body>
 </html>

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Psychology_Centre.Data;
 using Psychology_Centre.Models;
+using Psychology_Centre.ViewModels;
 
 namespace Psychology_Centre.Controllers
 {
@@ -20,10 +21,14 @@ namespace Psychology_Centre.Controllers
         }
 
         // GET: Clients
-        public async Task<IActionResult> Index(string searchSurname, string searchEmail)
+        public async Task<IActionResult> Index(string searchSurname, string searchEmail, int page = 1, 
+            SortState sortOrder = SortState.SurnameAsc)
         {
-            var clients = from c in _context.Clients
-                          select c;
+            int pageSize = 3;
+
+            // Фильтрация
+            IQueryable<Client> clients = from c in _context.Clients
+                                         select c;
 
             if (!String.IsNullOrEmpty(searchSurname))
             {
@@ -35,7 +40,40 @@ namespace Psychology_Centre.Controllers
                 clients = clients.Where(s => s.Email.Contains(searchEmail));
             }
 
-            return View(await clients.ToListAsync());
+            // Сортировка
+            switch (sortOrder)
+            {
+                case SortState.SurnameDesk:
+                    clients = clients.OrderByDescending(s => s.Surname);
+                    break;
+                case SortState.SurnameAsc:
+                    clients = clients.OrderBy(s => s.Surname);
+                    break;
+                case SortState.EmailDesc:
+                    clients = clients.OrderByDescending(s => s.Email);
+                    break;
+                case SortState.EmailAsc:
+                    clients = clients.OrderBy(s => s.Email);
+                    break;
+                default:
+                    clients = clients.OrderBy(s => s.Surname);
+                    break;
+            }
+
+            // Пагинация
+            var count = await clients.CountAsync();
+            var items = await clients.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+
+            // Модель представления
+            IndexViewModel viewModel = new IndexViewModel
+            {
+                PageViewModel = new PageViewModel(count, page, pageSize),
+                SortViewModel = new SortViewModel(sortOrder),
+                FilterViewModel = new FilterViewModel(searchSurname, searchEmail),
+                Clients = items
+            };
+
+            return View(viewModel);
         }
 
         // GET: Clients/Details/5
