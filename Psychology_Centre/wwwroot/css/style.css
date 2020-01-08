@@ -1,12 +1,15 @@
-﻿html, body {
-    margin: 0;
+﻿html, body { 
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
 }
 
+main {
+    margin-bottom: 25px;
+    margin-top: 50px;
+}
+
 .topnav {
     height: 25px;
-    overflow: hidden;
     background-color: black;
 }
 
@@ -14,8 +17,8 @@
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 2px 2px;
-    text-decoration: none;
+    padding-left: 4px;
+    padding-right: 4px;
     font-size: 16px;
 }
 
@@ -29,25 +32,21 @@
     color: white;
 }
 
-.foote {
+.footer1{
     height: 25px;
     background-color: white;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
 
-.foote a{
+.footer1 a{
     float: left;
     color: black;
     text-align: center;
     padding: 2px 2px;
-    text-decoration: none;
     font-size: 16px;
     border: 2px solid black;
 }
 
-.foote a:hover {
+.footer1 a:hover{
     background-color: black;
     color: white;
 }
