@@ -235,3 +235,4 @@ _Pvt_Extensions
 
 # My
 *.cache
+*.csprojAssemblyReference.cache
