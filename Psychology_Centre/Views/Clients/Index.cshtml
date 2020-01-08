@@ -1,5 +1,5 @@
-﻿@using Psychology_Centre.Models
-@model Client
+﻿@model IEnumerable<Psychology_Centre.Models.Client>
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -12,10 +12,68 @@
     <title>Index</title>
 </head>
 <body>
-    <form method="post" asp-controller="Clients" asp-action="Index">
-        Имя: <input type="text" asp-for="Name"/>
-        <span asp-validation-for="PhoneNumberFirst"></span> <br />
-        <input type="submit" />
-    </form>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                ФИО
+            </th>
+            <th>
+                Контактный телефон
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Когда позвонить
+            </th>
+            <th>
+                Статус
+            </th>
+            <th>
+                Особый клиент
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname) @Html.DisplayFor(modelItem => item.Name) @Html.DisplayFor(modelItem => item.Midname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumberFirst)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComfyCallTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsSpecial)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
 </body>
 </html>

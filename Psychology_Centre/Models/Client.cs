@@ -20,7 +20,7 @@ namespace Psychology_Centre.Models
             ErrorMessage = "Отчество должно быть написано русскими буквами и начинаться с заглавной буквы")]
         public string Midname { get; set; }
 
-        public bool Special { get; set; }
+        public bool IsSpecial { get; set; }
 
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
@@ -39,7 +39,7 @@ namespace Psychology_Centre.Models
 
         public string PhoneNumberOther { get; set; }
 
-        public string IdVk { get; set; }
+        public string IdFacebook { get; set; }
 
         public string ComfyCallTime { get; set; }
 
