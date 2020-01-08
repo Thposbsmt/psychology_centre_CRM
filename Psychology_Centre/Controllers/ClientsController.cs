@@ -20,14 +20,19 @@ namespace Psychology_Centre.Controllers
         }
 
         // GET: Clients
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchSurname, string searchEmail)
         {
             var clients = from c in _context.Clients
                           select c;
 
-            if (!String.IsNullOrEmpty(searchString))
+            if (!String.IsNullOrEmpty(searchSurname))
             {
-                clients = clients.Where(s => s.Surname.Contains(searchString));
+                clients = clients.Where(s => s.Surname.Contains(searchSurname));
+            }
+
+            if (!String.IsNullOrEmpty(searchEmail))
+            {
+                clients = clients.Where(s => s.Email.Contains(searchEmail));
             }
 
             return View(await clients.ToListAsync());

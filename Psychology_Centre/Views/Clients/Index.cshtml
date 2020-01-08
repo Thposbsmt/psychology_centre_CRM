@@ -16,10 +16,12 @@
     <p>
         <a class="btn btn-dark" asp-action="Create">Добавить нового клиента</a>
     </p>
+    <h3>Фильтр</h3>
     <form asp-controller="Clients" asp-action="Index">
         <p>
-            Поиск по фамилии: <input type="text" name="SearchString">
-            <input type="submit" value="Filter" />
+            Фамилия: <input type="text" name="searchSurname"/>
+            Email: <input type="text" name="searchEmail" />
+            <input type="submit" value="Фильтр" />
         </p>
     </form>
     <table class="table table-bordered">
