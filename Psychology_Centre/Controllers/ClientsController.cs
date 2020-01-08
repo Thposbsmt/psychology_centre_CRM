@@ -20,9 +20,17 @@ namespace Psychology_Centre.Controllers
         }
 
         // GET: Clients
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Clients.ToListAsync());
+            var clients = from c in _context.Clients
+                          select c;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                clients = clients.Where(s => s.Surname.Contains(searchString));
+            }
+
+            return View(await clients.ToListAsync());
         }
 
         // GET: Clients/Details/5
